@@ -1,0 +1,90 @@
+<script>
+    //todo: tag untuk tambah jarak <complete>
+    //solve error on input gender (didnt show in function ambilData()) <complete>
+    //buat fungsi tampilkan data, dengan kondisi tampil saat terisi semua, warning saat ada kosong
+</script>
+
+<html>
+<head>
+    <title>Daftar HGirls</title>
+</head>
+<body>
+    <h1>XI RPL6/ 2</h1>
+    <h2>Pendaftaran hiGirls!</h2>
+    <script>
+        function ambilData(){
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var nation = document.getElementById("nation").value;
+            var Byear = document.getElementById("Byear").value;
+            document.getElementById("a").innerHTML = name;
+            document.getElementById("b").innerHTML = email;
+            document.getElementById("c").innerHTML = nation;
+            document.getElementById("d").innerHTML = Byear;
+            var jenis = new Array();
+            var jenis = document.getElementsByName("gender");
+            if (jenis[0].checked === true)
+                var g = jenis[0].value;
+            else if (jenis[1].checked === true)
+                var g = jenis[1].value;
+            else if (jenis[2].checked === true)
+                var g = jenis[2].value;
+            else
+                var g = "kamu belum memilih";
+                document.getElementById("e").innerHTML = g; 
+            
+
+            if (name.length == 0){
+                document.write(`Kamu belum mengisi nama`);
+            } else if (email.length == 0){
+                document.write(`Kamu belum mengisi email`);
+            } else if (nation == null){
+                document.write(`Kamu belum memilih negara`);
+            } else if (Byear == null){
+                document.write(`Kamu belum memilih tahun lahir`);
+            } else if (gender[0].checked && gender[1].checked && gender[2].checked === false ){
+                document.write(`Kamu belum memilih jenis kelamin`);
+            } else{
+                return true;
+            }
+
+        }
+    </script>
+    <pre>
+Nama Lengkap    : <input type="text" id="name">
+
+E-mail          : <input type="text" id="email">
+
+Negara          : <select id="nation">
+            <option value="Indonesia">Indonesia</option>
+            <option value="Malaysia">Malaysia</option>
+            <option value="Singapura">Singapura</option>
+            <option value="Brunei Darussalam">Brunei Darussalam</option>
+            <option value="USA">USA</option>
+            <option value="Inggris">Inggris</option>
+            <option value="Swiss">Swiss</option>
+        </select>
+
+Tahun Lahir     : <select id="Byear">
+    <option value="1994">1994</option>
+    <option value="1995">1995</option>
+    <option value="1996">1996</option>
+    <option value="1997">1997</option>
+    <option value="1998">1998</option>
+</select>
+
+Jenis Kelamin   : <input type="radio" name="gender" value="Laki-Laki">Laki-Laki
+                  <input type="radio" name="gender" value="Perempuan">Perempuan
+                  <input type="radio" name="gender" value="Tak Terdefinisi">Tak Terdefinisi
+
+<button onclick="ambilData()">Daftar</button>
+    </pre>
+
+    <p id="a"></p>
+    <p id="b"></p>
+    <p id="c"></p>
+    <p id="d"></p>
+    <p id="e"></p>
+</body>
+</html>
+
